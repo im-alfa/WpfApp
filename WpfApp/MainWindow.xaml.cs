@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -149,6 +149,11 @@ namespace WpfApp
                     ImgStar1.Source = fullStar;
                     ImgStar2.Source = fullStar;
                     ImgStar3.Source = fullStar;
+                    break;
+                default:
+                    ImgStar1.Source = emptyStar;
+                    ImgStar2.Source = emptyStar;
+                    ImgStar3.Source = emptyStar;
                     break;
             }
         }
