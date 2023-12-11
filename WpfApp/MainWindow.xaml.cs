@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -23,6 +23,9 @@ namespace WpfApp
     {
         private ObservableCollection<Team> teams = new ObservableCollection<Team>();
         
+        /// <summary>
+        /// Sorts the teams by points and updates the listbox
+        /// </summary>
         private void SortTeams()
         {
             // keep track of what was selected
@@ -39,6 +42,9 @@ namespace WpfApp
             LbPlayers.SelectedItem = selectedPlayer;
         }
         
+        /// <summary>
+        /// Populates the listbox with example data
+        /// </summary>
         private void GetData()
         {
             // populates the listbox with data
@@ -71,6 +77,11 @@ namespace WpfApp
             SortTeams();
         }
         
+        /// <summary>
+        /// Updates the listbox with the players of the selected team
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LbTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var team = LbTeams.SelectedItem as Team;
@@ -82,13 +93,23 @@ namespace WpfApp
         {
             InitializeComponent();
         }
-
+        
+        /// <summary>
+        /// Loads the data and sets the listbox items source on window load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LbTeams.ItemsSource = teams;
             GetData();   
         }
 
+        /// <summary>
+        /// Adds a win to the selected player
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnWin_Click(object sender, RoutedEventArgs e)
         {
             var player = LbPlayers.SelectedItem as Player;
@@ -98,6 +119,11 @@ namespace WpfApp
             SortTeams();
         }
 
+        /// <summary>
+        /// Adds a loss to the selected player
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoss_Click(object sender, RoutedEventArgs e)
         {
             var player = LbPlayers.SelectedItem as Player;
@@ -107,6 +133,11 @@ namespace WpfApp
             SortTeams();
         }
 
+        /// <summary>
+        /// Adds a draw to the selected player
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDraw_Click(object sender, RoutedEventArgs e)
         {
             var player = LbPlayers.SelectedItem as Player;
@@ -116,6 +147,11 @@ namespace WpfApp
             SortTeams();
         }
 
+        /// <summary>
+        /// Updates the stars based on the selected player's points
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LbPlayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
