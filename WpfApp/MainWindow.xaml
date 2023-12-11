@@ -26,7 +26,7 @@
 
         <!-- Players -->
         <Label Grid.Row="1" Padding="18" Grid.Column="1" x:Name="PlayersTitle" Content="Players" VerticalAlignment="Center" FontSize="14" />
-        <ListBox Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="20" x:Name="LbPlayers" VerticalAlignment="Stretch" />
+        <ListBox Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="20" x:Name="LbPlayers" VerticalAlignment="Stretch" SelectionChanged="LbPlayers_SelectionChanged" />
 
         <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="2" Margin="10">
             <Label x:Name="RatingTitle" Content="Player rating" />

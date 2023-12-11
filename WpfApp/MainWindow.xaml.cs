@@ -115,5 +115,42 @@ namespace WpfApp
             LbTeams.Items.Refresh();
             SortTeams();
         }
+
+        private void LbPlayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            var selectedPlayer = LbPlayers.SelectedItem as Player;
+            var points = selectedPlayer?.Points;
+            
+            // Ugly workaround to get the image source from a string. Couldn't find a better way :'|
+            // https://copyprogramming.com/howto/csharp-wpf-set-image-source-from-string
+            var converter = new ImageSourceConverter();
+            var emptyStar = converter.ConvertFromString("pack://application:,,,/staroutline.png") as ImageSource;
+            var fullStar = converter.ConvertFromString("pack://application:,,,/starsolid.png") as ImageSource;
+            
+            switch (points)
+            {
+                case 0:
+                    ImgStar1.Source = emptyStar;
+                    ImgStar2.Source = emptyStar;
+                    ImgStar3.Source = emptyStar;
+                    break;
+                case { } n when (n > 0 && n <= 5):
+                    ImgStar1.Source = fullStar;
+                    ImgStar2.Source = emptyStar;
+                    ImgStar3.Source = emptyStar;
+                    break;
+                case { } n when (n > 5 && n <= 10):
+                    ImgStar1.Source = fullStar;
+                    ImgStar2.Source = fullStar;
+                    ImgStar3.Source = emptyStar;
+                    break;
+                case { } n when (n > 10):
+                    ImgStar1.Source = fullStar;
+                    ImgStar2.Source = fullStar;
+                    ImgStar3.Source = fullStar;
+                    break;
+            }
+        }
     }
 }

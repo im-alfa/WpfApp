@@ -101,5 +101,8 @@
   <ItemGroup>
     <Resource Include="staroutline.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="starsolid.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
